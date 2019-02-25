@@ -16,8 +16,8 @@
 
 	<scm>
 		<connection>scm:git:https://github.com/arun406/maven-versioning.git</connection>
-		<url>http://github.com/user/project</url>
-		<developerConnection>scm:git:https://github.com/user/project.git</developerConnection>
+		<url>https://github.com/arun406/maven-versioning</url>
+		<developerConnection>scm:git:https://github.com/arun406/maven-versioning.git</developerConnection>
 	</scm>
 	<properties>
 		<java.version>1.8</java.version>
@@ -56,7 +56,16 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-release-plugin</artifactId>
+				<version>2.5.3</version>
+				<configuration>
+					<tagNameFormat>v@{project.version}</tagNameFormat>
+					<autoVersionSubmodules>true</autoVersionSubmodules>
+					<allowTimestampedSnapshots>true</allowTimestampedSnapshots>
+					<remoteTagging>false</remoteTagging>
+					<tag>v@{project.version}</tag>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
